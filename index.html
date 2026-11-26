@@ -5,9 +5,275 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Profile</title>
 
-    <!-- เชื่อมต่อ CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================
+           MY WEB PROFILE - PREMIUM DESIGN
+        ========================================== */
+
+        /* Global Settings */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ภารกิจที่ 2: จัดสไตล์ <body> */
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at top left, #fff8e8, transparent 45%),
+                radial-gradient(circle at bottom right, #e8cba8, transparent 45%),
+                linear-gradient(135deg, #fdf6e8, #f2dfc5);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px 20px;
+
+            color: #3b2b20;
+        }
+
+        /* ภารกิจที่ 3: จัดสไตล์ .card */
+        .card {
+            width: 380px;
+            max-width: 100%;
+
+            background: rgba(255, 255, 255, 0.82);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            border-radius: 28px;
+
+            padding: 40px 32px;
+
+            text-align: center;
+
+            box-shadow:
+                0 30px 70px rgba(91, 61, 35, 0.15),
+                0 10px 25px rgba(91, 61, 35, 0.08);
+
+            position: relative;
+            overflow: hidden;
+
+            transition: all 0.4s ease;
+
+            animation: cardAppear 0.8s ease;
+        }
+
+        /* แถบสีตกแต่งด้านบน */
+        .card::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 6px;
+
+            background: linear-gradient(
+                90deg,
+                #c49a6c,
+                #e8c89e,
+                #a67c52,
+                #e8c89e
+            );
+        }
+
+        /* Hover Effect */
+        .card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 40px 90px rgba(91, 61, 35, 0.2),
+                0 15px 30px rgba(91, 61, 35, 0.1);
+        }
+
+        /* ภารกิจที่ 4: จัดสไตล์รูปภาพ <img> */
+        .card img {
+            width: 160px;
+            height: 160px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 5px solid #ffffff;
+
+            display: block;
+
+            margin: 0 auto 25px;
+
+            box-shadow:
+                0 0 0 5px #e8cba8,
+                0 12px 30px rgba(100, 70, 40, 0.2);
+
+            transition: all 0.4s ease;
+        }
+
+        /* Hover รูปภาพ */
+        .card img:hover {
+            transform: scale(1.08) rotate(3deg);
+
+            box-shadow:
+                0 0 0 7px #d2aa7c,
+                0 15px 35px rgba(100, 70, 40, 0.3);
+        }
+
+        /* ภารกิจที่ 5: จัดสไตล์ชื่อ #profile-name */
+        #profile-name {
+            color: #4a3425;
+
+            text-align: center;
+
+            font-size: 32px;
+            font-weight: bold;
+
+            margin-top: 0;
+            margin-bottom: 12px;
+
+            letter-spacing: 1px;
+
+            text-shadow:
+                0 2px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* เส้นตกแต่งใต้ชื่อ */
+        #profile-name::after {
+            content: "";
+
+            display: block;
+
+            width: 60px;
+            height: 4px;
+
+            background: linear-gradient(
+                90deg,
+                #c49a6c,
+                #e8c89e
+            );
+
+            border-radius: 10px;
+
+            margin: 15px auto 0;
+        }
+
+        /* ภารกิจที่ 6: จัดสไตล์ .bio */
+        .bio {
+            color: #806b59;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+
+            padding: 0 5px;
+        }
+
+        /* ภารกิจที่ 7: จัดสไตล์ <ul> */
+        ul {
+            list-style-type: none;
+
+            padding-left: 0;
+
+            margin: 0;
+        }
+
+        /* จัดสไตล์รายการ <li> */
+        ul li {
+            color: #5b4634;
+
+            background: linear-gradient(
+                135deg,
+                #fffaf3,
+                #f8eee0
+            );
+
+            padding: 14px 16px;
+
+            margin-bottom: 12px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            text-align: left;
+
+            border: 1px solid #f0e2d0;
+
+            box-shadow:
+                0 3px 8px rgba(100, 70, 40, 0.04);
+
+            transition: all 0.3s ease;
+        }
+
+        /* Hover รายการ */
+        ul li:hover {
+            background: linear-gradient(
+                135deg,
+                #f7e5cd,
+                #f1d5b5
+            );
+
+            transform: translateX(5px);
+
+            box-shadow:
+                0 5px 12px rgba(100, 70, 40, 0.1);
+        }
+
+        /* Animation */
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                width: 100%;
+                padding: 30px 22px;
+                border-radius: 22px;
+            }
+
+            .card img {
+                width: 140px;
+                height: 140px;
+            }
+
+            #profile-name {
+                font-size: 27px;
+            }
+
+            .bio {
+                font-size: 14px;
+            }
+
+            ul li {
+                font-size: 13px;
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="card">
